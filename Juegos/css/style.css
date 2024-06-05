@@ -92,3 +92,11 @@ body {
     font-weight: 500;
     transition: .5s ease;
   }
+
+  .clickable {
+    cursor: pointer;
+  }
+  
+  .disabled {
+    cursor: not-allowed;
+  }

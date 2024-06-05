@@ -1,33 +1,33 @@
-let loggedInUser = null;
+//let loggedInUser = null;
 
 
 const loginForm = document.getElementById('login-form');
 
 loginForm.addEventListener('submit', (event) => {
   event.preventDefault();
+
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
 
-  fetch('http://localhost:3001/api/registros')
+  fetch('http://localhost:3001/api/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ username, password })
+  })
     .then(response => response.json())
     .then(data => {
-      const user = data.find(user => user.usuario === username && user.contraseña === password);
-      if (user) {
+      if (data.success) {
+        localStorage.setItem('loggedInUser', username);
         alert('Inicio de sesión exitoso');
-        localStorage.setItem('loggedInUser', user.usuario);
-        const previousPage = localStorage.getItem('previousPage');
-        if (previousPage) {
-          window.location.href = previousPage;
-          localStorage.removeItem('previousPage');
-        } else {
-          window.location.href = 'index.html';
-        }
+        window.location.href = 'index.html';
       } else {
-        alert('Credenciales incorrectas');
+        alert('Credenciales inválidas');
       }
     })
     .catch(error => {
       console.error('Error:', error);
-      alert('Error al obtener los datos de usuario')
+      alert('Error al iniciar sesión');
     });
 });

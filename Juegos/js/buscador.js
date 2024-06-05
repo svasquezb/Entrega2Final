@@ -120,4 +120,4 @@ function filterGames(games, searchTerm) {
         renderGames(games, filteredGames, searchTerm);
       })
       .catch(error => console.error('Error al obtener los juegos:', error));
-  });
+  });                                                           
