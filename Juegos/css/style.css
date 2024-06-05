@@ -5,13 +5,11 @@ body {
     background-image: url(../img/fondo.jpg);
   }
   
-  .navbar {
-    background-image: url(../img/fondo.jpg);
-  }
+
   
   .navbar.navbar-light .navbar-brand,
   .navbar.navbar-light .navbar-nav .nav-link {
-    color: whitesmoke;
+    color: rgb(8, 8, 8);
   }
   
   h2 {
@@ -99,4 +97,27 @@ body {
   
   .disabled {
     cursor: not-allowed;
+  }
+
+  footer.footer {
+    margin-top: 500px;
+
+  }
+
+  footer.footer h5 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  footer.footer ul.list-unstyled li {
+    margin-bottom: 0.5rem;
+  }
+
+  footer.footer ul.list-unstyled li a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  footer.footer ul.list-unstyled li a:hover {
+    color: #ccc;
   }

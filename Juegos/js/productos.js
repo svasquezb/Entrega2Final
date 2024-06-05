@@ -15,7 +15,7 @@ function renderGames(gameData) {
           <div class="card-body">
             <h5 class="card-title">${game.name}</h5>
             <p class="card-text">Fecha de lanzamiento: ${game.released}</p>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#gameModal${index}">Ver más</button>
+            <button type="button" class="btn btn-primary" onclick="window.location.href='detalleJuego.html?id=${game.id}'">Ver más</button>
           </div>
         </div>
       </div>

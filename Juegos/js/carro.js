@@ -3,6 +3,10 @@ const cartItemsContainer = document.getElementById('cartItems');
 const cartTotalElement = document.getElementById('cartTotal');
 const cartItemCountElement = document.getElementById('cartItemCount');
 
+const apiKey = "d03f6e1112694da0bcc1dd1bd019343b";
+
+
+
 // Función para renderizar los elementos del carro
 function renderCartItems(cartItems) {
   console.log('Renderizando elementos del carro:', cartItems);

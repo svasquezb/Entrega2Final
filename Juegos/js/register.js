@@ -13,24 +13,21 @@ registerForm.addEventListener('submit', (event) => {
     return;
   }
 
-  fetch('http://localhost:3001/api/register', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ username, email, password })
+  fetch('http://localhost:3001/api/registros', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ usuario: username, email: email, contraseña: password })
+})
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    alert(data.message);
+    window.location.href = 'login.html';
   })
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        alert('Registro exitoso');
-        window.location.href = 'login.html';
-      } else {
-        alert('Error al registrar el usuario');
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('Error al registrar el usuario');
-    });
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Error al registrar el usuario');
+  });
 });
