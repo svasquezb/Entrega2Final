@@ -50,13 +50,19 @@ function calculateCartTotal(cartItems) {
 function updateCartItemQuantity(index, quantity) {
   console.log('Actualizando cantidad del elemento del carro:', index, quantity);
   const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+  // Verificar si el precio es un número válido
+  const price = isNaN(cartItems[index].price) ? 0 : cartItems[index].price;
+
   cartItems[index].quantity = quantity;
-  cartItems[index].subtotal = cartItems[index].price * quantity;
+  cartItems[index].subtotal = price * quantity;
+
   localStorage.setItem('cartItems', JSON.stringify(cartItems));
   console.log('Datos del carro actualizados en el almacenamiento local:', cartItems);
   renderCartItems(cartItems);
   calculateCartTotal(cartItems);
 }
+
 
 function removeCartItem(index) {
   console.log('Eliminando elemento del carro:', index);
